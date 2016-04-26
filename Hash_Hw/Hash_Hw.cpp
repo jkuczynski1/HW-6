@@ -65,7 +65,7 @@ int main()
 
 	}
 	in.clear(); in.close();//clears buffer and closes file.
-	cout << "Program finished." << endl;//tests if program has run fully.
+	cout << "Program finished..." << endl;//tests if program has run fully.
 	return 0;
 }
 
