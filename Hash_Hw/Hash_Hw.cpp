@@ -16,12 +16,22 @@ using namespace std;
 //inspiration for max f(x)/limits found here:http://www.cplusplus.com/reference/limits/numeric_limits/
 int printHash(int Hashtable[])//prints hash table. original code found from here: http://en.cppreference.com/w/cpp/memory/c/calloc
 {
+	ofstream out; string outString;
+	out.open("hashed_socials.txt");
 	int hashSize = 340000000;//Hashtable.size();
-	if (Hashtable)
-		for (int n = 0; n<hashSize - 1; ++n) // print the array
+	if (Hashtable&& out.is_open())
+	{
+		for (int n = 0; n < hashSize - 1; ++n) // print the array
+		{
 			if (Hashtable[n] != NULL)//checking for errors in case of printing a value not in the array.
-				std::cout << "hashTable[" << n << "] == " << Hashtable[n] << '\n';
-	return 0;
+			{
+				outString = outString + std::to_string(Hashtable[n]) + ","; // link: http://www.cplusplus.com/reference/string/to_string/
+				//std::cout << "hashTable[" << n << "] == " << Hashtable[n] << '\n';
+			}
+		}
+		out << outString;
+		out.close();
+	}return 0;
 }
 int quad_probe(int Hashtable[], int key, int quadNum)//quadratic probe code adapted struture from linear probe
 {
@@ -109,7 +119,7 @@ int main()
 										/*cout << "\nThird digit extracted: " << third << "\nFifth digit extracted: " << fifth <<
 										"\nSeventh digit extracted: " << seventh << "\nEigth digit extracted: " << eigth << endl;*/
 										//these check to see if the digits from fileLineNum are correct.
-		std::cout << eigth << endl;
+		//std::cout << eigth << endl;
 										//add to hash table, and add in quadratic probing without replacement method. hash table on line 26.
 		//hashTable[eigth%quadNum] = eigth;//store each value to the hash table...debug mode only. 
 		//all actual additions are handled by quad_probe below.
