@@ -17,7 +17,7 @@ using namespace std;
 int printHash(int Hashtable[])//prints hash table. original code found from here: http://en.cppreference.com/w/cpp/memory/c/calloc
 {
 	ofstream out; string outString;
-	out.open("hashed_socials.txt");
+	out.open("hashed_socials.txt",std::ofstream::out | std::ofstream::app);
 	int hashSize = 340000000;//Hashtable.size();
 	if (Hashtable&& out.is_open())
 	{
@@ -30,6 +30,7 @@ int printHash(int Hashtable[])//prints hash table. original code found from here
 			}
 		}
 		out << outString;
+		cout << "print to file complete." << endl;
 		out.close();
 	}return 0;
 }
