@@ -7,6 +7,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include <limits>
+#include <sstream> //link for string to int conversion... http://www.cplusplus.com/forum/general/13135/
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -120,7 +121,9 @@ int main()
 		//std::cout << charToInt << endl;
 		charToInt = charToInt + fileLine[7];//grabs the eigth value of fileLine.
 		//std::cout << charToInt << endl;
-		eigth = atoi(charToInt.c_str());//uses atoi to convert charToInt to int.
+		//eigth = atoi(charToInt.c_str());//uses atoi to convert charToInt to int.
+		istringstream buffer(charToInt);
+		buffer >> eigth;//use stringstram to convert charToInt to eigth (an int) http://www.cplusplus.com/forum/general/13135/
 		//cout << "\ndigits extracted: " << eigth << endl;
 										//these check to see if the digits from fileLineNum are correct.
 		//std::cout << eigth << endl;
