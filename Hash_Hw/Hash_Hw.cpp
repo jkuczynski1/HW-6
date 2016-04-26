@@ -112,12 +112,16 @@ int main()
 		}
 		/*Lines 36-42 convert parts of fileLine to the ints 3rd, 5th, 7th, 8th, all stored in 8th. Lines 44-45 print out to screen for debug.*/
 		charToInt = fileLine[2];//grabs the third value of fileLine.
-		charToInt = fileLine[4] + charToInt;//grabs the fifth value of fileLine, adds to line 50 code.
-		charToInt = fileLine[6] + charToInt;//grabs the seventh value of fileLine.
-		charToInt = fileLine[7] + charToInt;//grabs the eigth value of fileLine.
+		charToInt = fileLine[2];//grabs the third value of fileLine.
+		//std::cout << charToInt << endl;
+		charToInt = charToInt + fileLine[4];//grabs the fifth value of fileLine, adds to line 50 code.
+		//std::cout << charToInt << endl;
+		charToInt = charToInt + fileLine[6];//grabs the seventh value of fileLine.
+		//std::cout << charToInt << endl;
+		charToInt = charToInt + fileLine[7];//grabs the eigth value of fileLine.
+		//std::cout << charToInt << endl;
 		eigth = atoi(charToInt.c_str());//uses atoi to convert charToInt to int.
-										/*cout << "\nThird digit extracted: " << third << "\nFifth digit extracted: " << fifth <<
-										"\nSeventh digit extracted: " << seventh << "\nEigth digit extracted: " << eigth << endl;*/
+		//cout << "\ndigits extracted: " << eigth << endl;
 										//these check to see if the digits from fileLineNum are correct.
 		//std::cout << eigth << endl;
 										//add to hash table, and add in quadratic probing without replacement method. hash table on line 26.
