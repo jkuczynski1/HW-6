@@ -4,6 +4,8 @@
 //Supposed to create a hash table based on the extraction method with collision prevention enabled.
 
 #include "stdafx.h" 
+#include "stdio.h"
+#include "stdlib.h"
 #include <limits>
 #include <iostream>
 #include <fstream>
@@ -23,9 +25,8 @@ int main()
 	int quadNum, fileLineNum;//num for quadratic probing, conversion of fileLine to an int.
 	ifstream in;//creating ifstream for file IO
 	in.open("everybodys_socials.txt");//opens file
-
-	long int hashTable[99999999];//creates hash table. 
-								 //if supposed to contain between 100000000-999999999, a lot of space is needed.
+	int* hashTable = (int*)calloc(999999999, sizeof(int));//allocates memory for large hash table. http://www.cplusplus.com/reference/cstdlib/calloc/
+	//if supposed to contain between 100000000-999999999, a lot of space is needed.
 	if (!in.is_open())//if file cannot open, show error message.
 	{
 		cout << "cannot open file [everybodys_socials.txt]...please try again." << endl;
