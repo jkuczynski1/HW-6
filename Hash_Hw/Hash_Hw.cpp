@@ -25,14 +25,15 @@ int main()
 	int quadNum, fileLineNum;//num for quadratic probing, conversion of fileLine to an int.
 	ifstream in;//creating ifstream for file IO
 	in.open("everybodys_socials.txt");//opens file
-	//int *hashTable = (int*)calloc(999999999, sizeof(int*));//allocates memory for large hash table. http://www.cplusplus.com/reference/cstdlib/calloc/
+	int *hashTable = (int*)calloc(999999999, sizeof(int*));//allocates memory for large hash table. http://www.cplusplus.com/reference/cstdlib/calloc/
 	//if supposed to contain between 100000000-999999999, a lot of space is needed.
-	/*hashTable[0] = 0;
+	hashTable[0] = 0;
+	cout << hashTable[0];
 	if (hashTable == NULL)
 	{
 		printf("Error! memory not allocated.");//prevents errors. found here: http://www.programiz.com/c-programming/c-dynamic-memory-allocation
 		exit(0);
-	}*/
+	}
 	if (!in.is_open())//if file cannot open, show error message.
 	{
 		cout << "cannot open file [everybodys_socials.txt]...please try again." << endl;
@@ -70,8 +71,10 @@ int main()
 										//these check to see if the digits from fileLineNum are correct.
 		cout << eigth << endl;
 										//add to hash table, and add in quadratic probing without replacement method. hash table on line 26.
-		//hashTable[eigth%quadNum] = eigth;
-		//quad_probe(hashTable, eigth, quadNum);
+		//hashTable[eigth%quadNum] = eigth;//store each value to the hash table...debug mode only. 
+		//all actual additions are handled by quad_probe below.
+		//quad_probe(hashTable, eigth, quadNum);//does a check to make sure that the position for eigth is free in the table, and if not finds a new one. Adds eigth to the hash table.
+		//printHash(hashTable);//prints hashtable to screen. 
 	}
 	in.clear(); in.close();//clears buffer and closes file.
 	
