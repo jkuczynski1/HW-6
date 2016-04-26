@@ -30,9 +30,10 @@ int printHash(int Hashtable[])//prints hash table. original code found from here
 			}
 		}
 		out << outString;
-		cout << "print to file complete." << endl;
-		out.close();
-	}return 0;
+		
+	}
+	cout << "print to file complete." << endl;
+	out.close(); return 0;
 }
 int quad_probe(int Hashtable[], int key, int quadNum)//quadratic probe code adapted struture from linear probe
 {
@@ -60,7 +61,7 @@ int quad_probe(int Hashtable[], int key, int quadNum)//quadratic probe code adap
 }
 int main()
 {
-	cout << "testing..." << endl;//test to see if program runs
+	//cout << "testing..." << endl;//test to see if program runs
 	int third, fifth, seventh, eigth;//creation of int variables to store parts of hash keys.
 	string charToInt = " "; //helps convert sections of fileLine to third, fifth, seventh, eigth.
 	third = 0; fifth = 0; seventh = 0; eigth = 0;
@@ -68,11 +69,9 @@ int main()
 	int quadNum, fileLineNum;//num for quadratic probing, conversion of fileLine to an int.
 	ifstream in;//creating ifstream for file IO
 	in.open("everybodys_socials.txt");//opens file
-	int *hashTable1 = (int*)calloc(340000000, sizeof(int*));/* int *hashTable2 = (int*)calloc(240000000, sizeof(int*)); 
-	int *hashTable3 = (int*)calloc(250000000, sizeof(int*)); int *hashTable4 = (int*)calloc(250000000, sizeof(int*));*/
-	//allocates memory for large hash table. http://www.cplusplus.com/reference/cstdlib/calloc/
-	//if supposed to contain between 100000000-999999999, a lot of space is needed. need to split among 4 tables for it to work. ^^"
-	/*int i;
+	int *hashTable1 = (int*)calloc(340000000, sizeof(int*));/* allocates memory for large hash table. http://www.cplusplus.com/reference/cstdlib/calloc/
+	//if supposed to contain between 100000000-999999999, a lot of space is needed. 
+	/*int i; //checks if hash is created.
 	for (i = 0; i < 999999999; i++)
 	{
 		std::cout << "hash1: " << hashTable1[i] << endl;
@@ -80,7 +79,7 @@ int main()
 		//cout << "hash3: " << hashTable3[i] << endl;
 		//cout << "hash4: " << hashTable4[i] << endl;
 	}*/
-	if (hashTable1 == NULL) //|| hashTable2 == NULL || hashTable3 == NULL || hashTable4 == NULL)
+	if (hashTable1 == NULL) 
 	{
 		printf("Error! memory not allocated.");//prevents errors. found here: http://www.programiz.com/c-programming/c-dynamic-memory-allocation
 		exit(0);
@@ -128,13 +127,12 @@ int main()
 										//add to hash table, and add in quadratic probing without replacement method. hash table on line 26.
 		//hashTable[eigth%quadNum] = eigth;//store each value to the hash table...debug mode only. 
 		//all actual additions are handled by quad_probe below.
-		quad_probe(hashTable1, eigth, quadNum);//does a check to make sure that the position for eigth is free in the table, and if not finds a new one. Adds eigth to the hash table.
-		printHash(hashTable1);//prints hashtable to screen. 
+		quad_probe(hashTable1, eigth, quadNum);//does a check to make sure that the position for eigth is free in the table, and if not finds a new one. Adds eigth to the hash table. 
 	}
 	in.clear(); in.close();//clears buffer and closes file.
-	
+	printHash(hashTable1);//prints hashtable to file.
 	std::cout << "Program finished..." << endl;//tests if program has run fully.
-	//free(hashTable);//cleans up memory allocated for hashTable
+	free(hashTable1);//cleans up memory allocated for hashTable
 	return 0;
 }
 
