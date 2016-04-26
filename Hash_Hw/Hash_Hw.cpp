@@ -1,7 +1,7 @@
 // Hash_Hw.cpp : Defines the entry point for the console application.
 //
 //
-//Supposed to ceate a hash table based on the extraction method with collision prevention enabled.
+//Supposed to create a hash table based on the extraction method with collision prevention enabled.
 
 #include "stdafx.h" 
 #include <limits>
@@ -46,9 +46,9 @@ int main()
 	{
 		getline(in, fileLine, ',');//gets a new line (Social Security #, due to ',' limiting a line to just numbers.)
 		fileLineNum = atoi(fileLine.c_str());//converts fileLine to int. found here: 
-											 //cout << "the current value extracted is: " << fileLineNum << endl; //checks if the atoi conversion is succesful.
+		//cout << "the current value extracted is: " << fileLineNum << endl; //checks if the atoi conversion is succesful.
 
-											 /*Lines 36-42 convert parts of fileLine to the ints 3rd, 5th, 7th, 8th. Lines 44-45 print out to screen for debug.*/
+		/*Lines 36-42 convert parts of fileLine to the ints 3rd, 5th, 7th, 8th. Lines 44-45 print out to screen for debug.*/
 		charToInt = fileLine[2];//grabs the third value of fileLine.
 		third = atoi(charToInt.c_str());//uses atoi to convert charToInt to int.
 		charToInt = fileLine[4];//grabs the fifth value of fileLine.
